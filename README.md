@@ -30,6 +30,13 @@ Install dependencies
 ```bash
   brew install k6
 ```
+You'll need to create a .env folder to hold these environment variables
+```text
+  API_KEY=<Your API Key>
+  USER_NAME=<Your Giphy User Name>
+  PASSWORD-<Your Password>
+```
+Alternatively you can pass the ENV vairables into the command line when running
 
 Run Testcafe and generate html report
 
