@@ -1,5 +1,5 @@
 import { Selector, t } from 'testcafe';
-//Page models/components for Upload. 
+//Page models/components for Upload.
 class UploadObject {
     constructor () {
       this.gifUploadInput = Selector('input').withAttribute('type', 'url');
@@ -7,7 +7,7 @@ class UploadObject {
       this.gifUploadInfo = Selector('div').withText('Add Info');
 
     }
-
+    // Function for upload
     async upload (input) {
         await t
           .typeText(this.gifUploadInput, input, { paste: true })
