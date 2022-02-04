@@ -15,8 +15,23 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  test:
+    name: Run TestCafe Tests
+    env:
+        USER_NAME: ${{ secrets.GIPHY_USER_NAME }}
+        PASSWORD: ${{ secrets.GIPHY_PASSWORD }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v1
+      - name: Run tests
+        uses: DevExpress/testcafe-action@latest
+        with:
+            args: "chrome Tests/"
   k6_load_test:
     name: k6 Load Test
+    env:
+      API_KEY= ${{ secrets.GIPHY_API_KEY }}
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +40,7 @@ jobs:
       - name: Install k6 by homebrew
         run: brew install k6
       - name: Local k6 test
-        run: k6 run -e API_KEY="${{ secrets.GIPHY_API_KEY }}" ./PerformanceTests.js
+        run: k6 run ./PerformanceTests.js
 
  # This workflow contains a single job called "build"
   build:
