@@ -3,7 +3,7 @@ import { URL } from 'https://jslib.k6.io/url/1.0.0/index.js';
 import { describe } from 'https://jslib.k6.io/expect/0.0.5/index.js';
 import { sleep , check } from 'k6';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
-console.log(__ENV.API_KEY);
+
 export const options = {
   thresholds: {
     checks: [{ threshold: 'rate == 1.00', abortOnFail: false }],
@@ -64,8 +64,8 @@ export default function testSuite() {
   });
 
 }
-export function handleSummary(data) {
-  return {
-    "../Reports/summary.html": htmlReport(data),
-  };
+// export function handleSummary(data) {
+//   return {
+//     "../Reports/summary.html": htmlReport(data),
+//   };
 }
