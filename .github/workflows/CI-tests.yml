@@ -41,12 +41,11 @@ jobs:
         run: brew install k6
       - name: Local k6 test
         run: k6 run ./PerformanceTests.js
-        - name: Deploy
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Reports
+          publish_dir: ./public
 
  # This workflow contains a single job called "build"
   build:
