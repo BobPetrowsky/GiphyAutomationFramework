@@ -44,12 +44,12 @@ jobs:
       - name: Copy test report
         run: |
           mkdir public
-          cp -r Reports/summary.html public/
+          cp -r Reports/index.html public/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Reports/summary.html
+          publish_dir: ./public
 
  # This workflow contains a single job called "build"
   build:

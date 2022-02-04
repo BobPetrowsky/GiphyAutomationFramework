@@ -66,6 +66,6 @@ export default function testSuite() {
 }
 export function handleSummary(data) {
   return {
-    "Reports/summary.html": htmlReport(data),
+    "Reports/index.html": htmlReport(data),
   };
 }
