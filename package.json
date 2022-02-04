@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "testcafe-report": "npx testcafe chrome Tests/ --reporter html:Reports/testcafeReport.html",
+    "k6-report": "k6 run -e API_KEY=$API_KEY PreformanceTests.js"
+  },
+  "devDependencies": {
+    "testcafe": "^1.18.3"
+  },
+  "dependencies": {
+    "dotenv": "^15.0.0",
+    "testcafe-reporter-html": "^1.4.6"
+  },
+  "name": "giphytest",
+  "version": "1.0.0",
+  "description": "Test Automation framework for Giphy",
+  "main": "PreformanceTests.js",
+  "author": "Robert Petrowsky",
+  "license": "ISC"
+}
