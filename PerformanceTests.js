@@ -21,7 +21,7 @@ export default function testSuite() {
   describe('Search for a limited list of GIFs', (t) => {
     // Grab the base url
     const searchURL= new URL('http://api.giphy.com/v1/gifs/search');
-    // Set Perams
+    // Set Params
     searchURL.searchParams.append('api_key', apiToken);
     searchURL.searchParams.append('q', 'test');
     searchURL.searchParams.append('limit', 5);
