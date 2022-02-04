@@ -2,7 +2,7 @@ import { Selector, ClientFunction } from 'testcafe';
 import uploadObject from '../page-objects/uploadObject.js';
 import { user } from '../Roles/userRole.js';
 
-fixture`Upload a GIF file`
+fixture`Upload`
     .page`https://giphy.com/upload`;
 
 test('Uploading a GIF', async t => {
@@ -19,7 +19,7 @@ test('Uploading a GIF', async t => {
       .expect(getLocation()).contains('https://giphy.com/gifs/')
       .expect(Selector('h1').withText('Animated GIF')).exists;
 
-      //I tried to handle native dialoge but didn't have time to really troubleshoot and figure it out. 
+      //I tried to handle native dialoge but didn't have time to really troubleshoot and figure it out.
       //.setNativeDialogHandler(() => true)
       //.setFilesToUpload(Selector('input').withAttribute('accept', 'image/gif,video/mp4,video/mov,video/quicktime,youtube,vimeo'), '../GiphyTest/testGif.gif')
       //.click(uploadObject.gifUpload)
