@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Run Tests:
+  testcafe_tests:
     name: Run All Tests
     env:
         USER_NAME: ${{ secrets.GIPHY_USER_NAME }}
