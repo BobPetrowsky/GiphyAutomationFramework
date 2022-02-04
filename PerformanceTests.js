@@ -66,6 +66,6 @@ export default function testSuite() {
 }
 export function handleSummary(data) {
   return {
-    "/Users/bobpetrowsky/Desktop/GiphyTest/Reports/summary.html": htmlReport(data),
+    "../Reports/summary.html": htmlReport(data),
   };
 }
