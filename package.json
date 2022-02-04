@@ -1,7 +1,7 @@
 {
   "scripts": {
     "testcafe-report": "npx testcafe chrome Tests/ --reporter html:Reports/testcafeReport.html",
-    "k6-report": "k6 run -e API_KEY=$API_KEY PreformanceTests.js"
+    "k6-report": "k6 run -e API_KEY=$API_KEY PerformanceTests.js"
   },
   "devDependencies": {
     "testcafe": "^1.18.3"
