@@ -4,7 +4,7 @@ import { describe } from 'https://jslib.k6.io/expect/0.0.5/index.js';
 import { sleep , check } from 'k6';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
-//S et K6 options
+// Set K6 options
  export const options = {
   thresholds: {
     checks: [{ threshold: 'rate == 1.00', abortOnFail: false }],
