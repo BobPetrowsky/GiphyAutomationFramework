@@ -1,5 +1,5 @@
 # GiphyAutomationFramework
-Simple Automation Framework built with Testcafe and K6
+Simple Automation Framework built with Testcafe and K6. Using Github Actions run the test and deploy reports to a Github Page.
 
 
 ## Link To CI/CD Report
