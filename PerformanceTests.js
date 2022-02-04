@@ -64,8 +64,8 @@ export default function testSuite() {
   });
 
 }
-// export function handleSummary(data) {
-//   return {
-//     "../Reports/summary.html": htmlReport(data),
-//   };
-// }
+export function handleSummary(data) {
+  return {
+    "Reports/summary.html": htmlReport(data),
+  };
+}

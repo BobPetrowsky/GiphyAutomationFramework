@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  testcafe_tests:
     name: Run TestCafe Tests
     env:
         USER_NAME: ${{ secrets.GIPHY_USER_NAME }}
@@ -28,7 +28,7 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
             args: "chrome Tests/"
-  k6_load_test:
+  k6_performance_test:
     name: k6 Load Test
     env:
       API_KEY: ${{ secrets.GIPHY_API_KEY }}
@@ -41,6 +41,12 @@ jobs:
         run: brew install k6
       - name: Local k6 test
         run: k6 run ./PerformanceTests.js
+        - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Reports
 
  # This workflow contains a single job called "build"
   build:
