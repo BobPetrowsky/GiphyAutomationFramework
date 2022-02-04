@@ -25,8 +25,8 @@ jobs:
       - name: Install k6 by homebrew
         run: brew install k6
       - name: Local k6 test
-        run: k6 run -e API_KEY=${{ secrets.GIPHY_API_KEY }} ./PerformanceTests.js
- 
+        run: k6 run -e API_KEY="${{ secrets.GIPHY_API_KEY }}" ./PerformanceTests.js
+
  # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
