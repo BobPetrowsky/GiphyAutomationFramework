@@ -15,11 +15,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  testcafe_tests:
-    name: Run TestCafe Tests
+  Run Tests:
+    name: Run All Tests
     env:
         USER_NAME: ${{ secrets.GIPHY_USER_NAME }}
         PASSWORD: ${{ secrets.GIPHY_PASSWORD }}
+        API_KEY: ${{ secrets.GIPHY_API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
@@ -27,16 +28,7 @@ jobs:
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
-            args: "chrome Tests/"
-  k6_performance_test:
-    name: k6 Load Test
-    env:
-      API_KEY: ${{ secrets.GIPHY_API_KEY }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+            args: "chrome Tests/ --reporter html:Reports/testcafeReport.html"
       - name: Install k6 by homebrew
         run: brew install k6
       - name: Local k6 test
@@ -44,6 +36,7 @@ jobs:
       - name: Copy test report
         run: |
           mkdir public
+          cat Reports/testcafeReport.html >> Reports/index.html
           cp -r Reports/index.html public/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
