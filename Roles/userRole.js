@@ -1,6 +1,5 @@
 import { Role, Selector, t } from 'testcafe';
-import * as dotenv from 'dotenv';
-import { env } from 'process';
+import loginObject from '../page-objects/loginObject.js';
 require('dotenv').config()
 
 //Create User Role
@@ -15,7 +14,7 @@ async function login(userName, password) {
     await t.click(cookiesNotice);
 
   await t
-    .typeText(Selector('input').withAttribute('type', 'email'), userName)
-    .typeText(Selector('input').withAttribute('type', 'password'), password)
-    .click(Selector('button').withText('Log in'));
+    .typeText(loginObject.emailInput, userName)
+    .typeText(loginObject.passwordInput, password)
+    .click(loginObject.loginButton);
 };
